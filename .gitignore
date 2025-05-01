@@ -6,3 +6,4 @@ models/
 .Rdata
 .Rhistory
 .old/
+.DS_Store
