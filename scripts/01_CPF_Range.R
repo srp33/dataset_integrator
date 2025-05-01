@@ -55,6 +55,7 @@ write_tsv(train, paste0("baked/", subFolder, "train.tsv"))
 
 bakeFiles(dataSets, recipe)
 
+if(!dir.exists("recipes/")) dir.create("recipes/")
 saveRDS(recipe, "recipes/01_CPF_Range.rds")
 
 #########################################################
@@ -69,6 +70,7 @@ model = rand_forest(trees = 25,
 fitModel = model |>
             fit(formula, data = train)
 
+if(!dir.exists("models/")) dir.create("models/")
 saveRDS(fitModel, "models/01_CPF_Range.rds")
 
 #########################################################
