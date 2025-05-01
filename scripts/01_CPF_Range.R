@@ -53,7 +53,7 @@ recipe = recipe(formula, data = train) |>
 train = bake(recipe, new_data = NULL)
 write_tsv(train, paste0("baked/", subFolder, "train.tsv"))
 
-bakeFiles(paste0(subFolder, dataSets), recipe)
+bakeFiles(dataSets, recipe)
 
 saveRDS(recipe, "recipes/01_CPF_Range.rds")
 
