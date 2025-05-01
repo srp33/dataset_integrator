@@ -41,6 +41,7 @@ test = testing(split)
 formula = Class ~ .
 
 subFolder = "01_CPF_Range/"
+if(!dir.exists("baked/")) dir.create("baked/")
 if(!dir.exists(paste0("baked/", subFolder))) dir.create(paste0("baked/", subFolder))
 if(!dir.exists(paste0("plots/", subFolder))) dir.create(paste0("plots/", subFolder))
 
@@ -52,7 +53,7 @@ recipe = recipe(formula, data = train) |>
 train = bake(recipe, new_data = NULL)
 write_tsv(train, paste0("baked/", subFolder, "train.tsv"))
 
-bakeFiles(dataSets, recipe, subFolder)
+bakeFiles(paste0(subFolder, dataSets), recipe)
 
 saveRDS(recipe, "recipes/01_CPF_Range.rds")
 
